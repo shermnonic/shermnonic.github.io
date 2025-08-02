@@ -1,4 +1,4 @@
-name: Build static website and deploy to github pages
+name: Build and deploy to github pages
 
 # Enable workflow to be triggered manually
 on: workflow_dispatch
@@ -29,6 +29,8 @@ jobs:
 
   # Deployment job
   deploy:
+    needs: build
+
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write      # to deploy to Pages
